@@ -1,0 +1,39 @@
+server:
+  port: 8889
+  context-path: /ems
+  jsp-servlet:
+    init-parameters:
+      development: true
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  http:
+    encoding:
+      charset: utf-8
+#    multipart:
+#      max-file-size: 30MB
+#      max-request-size: 50MB
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/db125
+    username: root
+    password: 123
+    type: com.alibaba.druid.pool.DruidDataSource
+jackson:
+  date-format: yyyy-MM-dd HH:mm:ss
+  time-zone: GMT+8
+mybatis:
+  mapper-locations: classpath*:/com/ems/mapper/*Mapper.xml
+  type-aliases-package: com.baizhi.pojo
+  #pagehelper分页插件配置
+#  pagehelper.helperDialect=mysql
+#  pagehelper.reasonable=true
+#  pagehelper.supportMethodsArguments=true
+#  pagehelper.params=count=countSql
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
